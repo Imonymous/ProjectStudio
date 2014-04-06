@@ -3,10 +3,11 @@ Staff staff;
 public class Staff
 {
   float posX = 100;
-  float[] xpoints = {-50,20,120,220,320,420,520,620,720,820,920,1020};
+  float[] xpoints = {-50,20,110,210,310,410,510,603,703,803,900,1020};
+  float[] xpoints2 = {-50,20,120,220,320,430,520,620,720,820,910,1020};
   float[] barpos = {170,320,420,520,670,820,920};
   float[] mapxvalues = {0.0,0.04,0.125,0.21,0.295,0.38,0.475,0.585,0.685,0.785,0.885,1.0};
-  float[] bclefvalues = {0.0,0.04,0.125,0.21,0.30,0.40,0.50,0.585,0.685,0.785,0.885,1.0};
+  //float[] bclefvalues = {0.0,0.04,0.125,0.21,0.30,0.40,0.50,0.585,0.685,0.785,0.885,1.0};
   float yheigth = 200;
   boolean[] flags1 = {true,false,false,false,false,false,false,false,false,false,false};
   boolean[] flags2 = {true,false,false,false,false,false,false,false,false,false,false};
@@ -121,18 +122,18 @@ public class Staff
       strokeWeight(3.0);
       beginShape(LINES);
         stroke(0,0,0);
-        vertex(posX+barpos[i],113);
-        vertex(posX+barpos[i],179);
+        vertex(posX+barpos[i],117);
+        vertex(posX+barpos[i],209);
       endShape();
       beginShape(LINES);
         stroke(0,0,0);
-        vertex(posX+barpos[i],363);
-        vertex(posX+barpos[i],429);
+        vertex(posX+barpos[i],367);
+        vertex(posX+barpos[i],458);
       endShape();
     beginShape(LINES);
         stroke(0,0,0);
-        vertex(posX+barpos[i],613);
-        vertex(posX+barpos[i],679);
+        vertex(posX+barpos[i],617);
+        vertex(posX+barpos[i],708);
       endShape();
    }
     //indicate the speed of each bar for the musicians;
@@ -180,10 +181,10 @@ public class Staff
        }else{
          noStroke();
          texture(restImage);
-         vertex(posX+xpoints[i], 49, 0, 0);
-         vertex(posX+xpoints[i+1], 49,1, 0);
-         vertex(posX+xpoints[i+1], 249, 1, 1);
-         vertex(posX+xpoints[i], 249, 0,1);
+         vertex(posX+xpoints[i], 50, 0, 0);
+         vertex(posX+xpoints[i+1], 50,1, 0);
+         vertex(posX+xpoints[i+1], 250, 1, 1);
+         vertex(posX+xpoints[i], 250, 0,1);
        }
        endShape();
        
@@ -200,10 +201,10 @@ public class Staff
        }else{
          noStroke();
          texture(restImage);
-         vertex(posX+xpoints[i], 300.8, 0, 0);
-         vertex(posX+xpoints[i+1], 300.8,1, 0);
-         vertex(posX+xpoints[i+1], 500.8, 1, 1);
-         vertex(posX+xpoints[i], 500.8, 0,1);
+         vertex(posX+xpoints[i], 300, 0, 0);
+         vertex(posX+xpoints[i+1], 300,1, 0);
+         vertex(posX+xpoints[i+1], 500, 1, 1);
+         vertex(posX+xpoints[i], 500, 0,1);
        }
        endShape();
        
@@ -213,17 +214,17 @@ public class Staff
          //stroke(255,0,0);
          noStroke();
          texture(boxImage3); 
-         vertex(posX+xpoints[i], 550, bclefvalues[i], 0);
-         vertex(posX+xpoints[i+1], 550,bclefvalues[i+1], 0);
-         vertex(posX+xpoints[i+1], 750, bclefvalues[i+1], 1);
-         vertex(posX+xpoints[i], 750, bclefvalues[i],1);
+         vertex(posX+xpoints2[i], 550, mapxvalues[i], 0);
+         vertex(posX+xpoints2[i+1], 550,mapxvalues[i+1], 0);
+         vertex(posX+xpoints2[i+1], 750, mapxvalues[i+1], 1);
+         vertex(posX+xpoints2[i], 750, mapxvalues[i],1);
        }else{
          noStroke();
          texture(restImage);
-         vertex(posX+xpoints[i], 549.5, 0, 0);
-         vertex(posX+xpoints[i+1], 549.5,1, 0);
-         vertex(posX+xpoints[i+1], 749.5, 1, 1);
-         vertex(posX+xpoints[i], 749.5, 0,1);
+         vertex(posX+xpoints2[i], 550, 0, 0);
+         vertex(posX+xpoints2[i+1], 550,1, 0);
+         vertex(posX+xpoints2[i+1], 750, 1, 1);
+         vertex(posX+xpoints2[i], 750, 0,1);
        }
        endShape();
     }

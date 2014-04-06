@@ -2,14 +2,15 @@ import de.bezier.data.sql.*;
 
 MySQL mysql;
 public void initDB(){
-  String user   = "shuo";
+  String user   = "psmatrix";
   String pass   = "password";
   //String user     = "root";
   //String pass     = "shuo";
   
   String database = "psmatrix";
-  mysql = new MySQL(this, "10.0.1.20", database, user, pass);
+  //mysql = new MySQL(this, "10.0.1.20", database, user, pass);
   //mysql = new MySQL(this, "localhost", database, user, pass);
+  mysql = new MySQL(this, "192.168.0.113", database, user, pass);
   
   if (mysql.connect())
   {
