@@ -18,6 +18,8 @@ public class Staff
   int[] count3;
   int curr = 0;
   
+  float deltaXTime =0;
+  
   public void initCounters()
   {
     count1 = new int[10];
@@ -85,11 +87,25 @@ public class Staff
   }
   public void setCurrent(int current)
   {
+    if(curr!=current){
+      deltaXTime = 30;
+    }else{
+      deltaXTime = deltaXTime+7.00;
+    }
     curr = current;
+    
   }
   
   public void drawMapping()
   {
+    fill(blue);
+    textSize(32);
+    text("Sax", posX+xpoints[0], 50); 
+    textSize(32);
+    text("Tmp", posX+xpoints[0], 300); 
+        textSize(32);
+    text("Eup", posX+xpoints[0], 550); 
+    
     noStroke();
     textureMode(NORMAL);       // texture parameters in [0,1]x[0,1] 
     noStroke();
@@ -143,22 +159,22 @@ public class Staff
         stroke(0,0,255);
  
       beginShape(LINES);
-        vertex(posX+xpoints[curr+1], 70, mapxvalues[curr+1], 0);
-        vertex(posX+xpoints[curr+1], 220, mapxvalues[curr+1],1);
+        vertex(posX+xpoints[curr+1]+deltaXTime, 70, mapxvalues[curr+1], 0);
+        vertex(posX+xpoints[curr+1]+deltaXTime, 220, mapxvalues[curr+1],1);
       endShape();
       
        beginShape(LINES);
         strokeCap(ROUND);
         stroke(204,0,0);
-        vertex(posX+xpoints[curr+1], 320, mapxvalues[curr+1], 0);
-        vertex(posX+xpoints[curr+1], 470, mapxvalues[curr+1],1);
+        vertex(posX+xpoints[curr+1]+deltaXTime, 320, mapxvalues[curr+1], 0);
+        vertex(posX+xpoints[curr+1]+deltaXTime, 470, mapxvalues[curr+1],1);
       endShape();
       
        beginShape(LINES);
         strokeCap(ROUND);
         stroke(127,0,255);
-        vertex(posX+xpoints[curr+1], 570, mapxvalues[curr+1], 0);
-        vertex(posX+xpoints[curr+1], 720, mapxvalues[curr+1],1);
+        vertex(posX+xpoints[curr+1]+deltaXTime, 570, mapxvalues[curr+1], 0);
+        vertex(posX+xpoints[curr+1]+deltaXTime, 720, mapxvalues[curr+1],1);
       endShape();
       
       //the first staff for musician 1
