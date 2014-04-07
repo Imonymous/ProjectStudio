@@ -8,9 +8,9 @@ public void initDB(){
   //String pass     = "shuo";
   
   String database = "psmatrix";
-  //mysql = new MySQL(this, "10.0.1.20", database, user, pass);
+  mysql = new MySQL(this, "10.0.1.20", database, user, pass);
   //mysql = new MySQL(this, "localhost", database, user, pass);
-  mysql = new MySQL(this, "192.168.0.113", database, user, pass);
+  //mysql = new MySQL(this, "192.168.0.113", database, user, pass);
   
   if (mysql.connect())
   {
