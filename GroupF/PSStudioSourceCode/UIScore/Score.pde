@@ -92,6 +92,7 @@ public class Staff
     }else{
       deltaXTime = deltaXTime+7.00;
     }
+    
     curr = current;
     
   }
@@ -102,9 +103,9 @@ public class Staff
     textSize(32);
     text("Sax", posX+xpoints[0], 50); 
     textSize(32);
-    text("Tmp", posX+xpoints[0], 300); 
-        textSize(32);
-    text("Eup", posX+xpoints[0], 550); 
+    text("Tmp", posX+xpoints[0], 290); 
+    textSize(32);
+    text("Eup", posX+xpoints[0], 540); 
     
     noStroke();
     textureMode(NORMAL);       // texture parameters in [0,1]x[0,1] 
@@ -159,21 +160,21 @@ public class Staff
         stroke(0,0,255);
  
       beginShape(LINES);
-        vertex(posX+xpoints[curr+1]+deltaXTime, 70, mapxvalues[curr+1], 0);
+        vertex(posX+xpoints[curr+1]+deltaXTime, 100, mapxvalues[curr+1], 0);
         vertex(posX+xpoints[curr+1]+deltaXTime, 220, mapxvalues[curr+1],1);
       endShape();
       
        beginShape(LINES);
         strokeCap(ROUND);
         stroke(204,0,0);
-        vertex(posX+xpoints[curr+1]+deltaXTime, 320, mapxvalues[curr+1], 0);
+        vertex(posX+xpoints[curr+1]+deltaXTime, 350, mapxvalues[curr+1], 0);
         vertex(posX+xpoints[curr+1]+deltaXTime, 470, mapxvalues[curr+1],1);
       endShape();
       
        beginShape(LINES);
         strokeCap(ROUND);
         stroke(127,0,255);
-        vertex(posX+xpoints[curr+1]+deltaXTime, 570, mapxvalues[curr+1], 0);
+        vertex(posX+xpoints[curr+1]+deltaXTime, 600, mapxvalues[curr+1], 0);
         vertex(posX+xpoints[curr+1]+deltaXTime, 720, mapxvalues[curr+1],1);
       endShape();
       
@@ -197,10 +198,10 @@ public class Staff
        }else{
          noStroke();
          texture(restImage);
-         vertex(posX+xpoints[i], 50, 0, 0);
-         vertex(posX+xpoints[i+1], 50,1, 0);
-         vertex(posX+xpoints[i+1], 250, 1, 1);
-         vertex(posX+xpoints[i], 250, 0,1);
+         vertex(posX+xpoints2[i], 50, 0, 0);
+         vertex(posX+xpoints2[i+1], 50,1, 0);
+         vertex(posX+xpoints2[i+1], 250, 1, 1);
+         vertex(posX+xpoints2[i], 250, 0,1);
        }
        endShape();
        
@@ -217,10 +218,10 @@ public class Staff
        }else{
          noStroke();
          texture(restImage);
-         vertex(posX+xpoints[i], 300, 0, 0);
-         vertex(posX+xpoints[i+1], 300,1, 0);
-         vertex(posX+xpoints[i+1], 500, 1, 1);
-         vertex(posX+xpoints[i], 500, 0,1);
+         vertex(posX+xpoints2[i], 300, 0, 0);
+         vertex(posX+xpoints2[i+1], 300,1, 0);
+         vertex(posX+xpoints2[i+1], 500, 1, 1);
+         vertex(posX+xpoints2[i], 500, 0,1);
        }
        endShape();
        

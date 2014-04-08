@@ -7,8 +7,11 @@ public void initDB(){
   
     // replace --username--, --password-- with your mysql-account.
     //
-    String user     = "root";
-    String pass     = "iwuana";
+//    String user     = "root";
+//    String pass     = "iwuana";
+    
+    String user     = "psmatrix";
+    String pass     = "password";
   
     // name of the database to use
     //
@@ -18,8 +21,8 @@ public void initDB(){
   
     // connect to database of server "localhost"
     //
-    msql = new MySQL( this, "localhost", database, user, pass );
-    
+    //msql = new MySQL( this, "localhost", database, user, pass );
+    msql = new MySQL( this, "192.168.0.113", database, user, pass );
     if ( msql.connect() )
     {
         msql.query( "SELECT * FROM matrix" );
