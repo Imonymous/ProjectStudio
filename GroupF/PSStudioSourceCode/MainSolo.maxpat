@@ -3,12 +3,11 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 6,
-			"minor" : 1,
-			"revision" : 6,
-			"architecture" : "x86"
+			"minor" : 0,
+			"revision" : 8
 		}
 ,
-		"rect" : [ 349.0, 45.0, 927.0, 671.0 ],
+		"rect" : [ 0.0, 44.0, 1440.0, 749.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -53,9 +52,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 6,
-							"minor" : 1,
-							"revision" : 6,
-							"architecture" : "x86"
+							"minor" : 0,
+							"revision" : 8
 						}
 ,
 						"rect" : [ 29.0, 67.0, 640.0, 480.0 ],
@@ -478,7 +476,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 173.0, 902.0, 254.0, 18.0 ],
-					"text" : "6 1 1 50 50 80 110 61 240 240 50 50"
+					"text" : "7 8 1 48 48 80 110 21 300 300 48 48"
 				}
 
 			}
@@ -494,9 +492,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 6,
-							"minor" : 1,
-							"revision" : 6,
-							"architecture" : "x86"
+							"minor" : 0,
+							"revision" : 8
 						}
 ,
 						"rect" : [ 29.0, 67.0, 985.0, 519.0 ],
@@ -919,7 +916,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 101.0, 873.0, 254.0, 18.0 ],
-					"text" : "3 1 1 60 60 110 80 31 240 240 60 60"
+					"text" : "2 8 1 65 65 110 80 71 300 300 65 65"
 				}
 
 			}
@@ -935,9 +932,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 6,
-							"minor" : 1,
-							"revision" : 6,
-							"architecture" : "x86"
+							"minor" : 0,
+							"revision" : 8
 						}
 ,
 						"rect" : [ 29.0, 67.0, 958.0, 590.0 ],
@@ -1444,7 +1440,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 10.0, 845.0, 254.0, 18.0 ],
-					"text" : "0 0 0 0 0 0 0 0 0 0 0 0"
+					"text" : "2 8 1 65 65 110 80 71 300 300 65 65"
 				}
 
 			}
@@ -1482,18 +1478,17 @@
 					"id" : "obj-80",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
-					"numoutlets" : 4,
-					"outlettype" : [ "", "", "", "" ],
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 6,
-							"minor" : 1,
-							"revision" : 6,
-							"architecture" : "x86"
+							"minor" : 0,
+							"revision" : 8
 						}
 ,
-						"rect" : [ 61.0, 77.0, 841.0, 614.0 ],
+						"rect" : [ 0.0, 44.0, 1440.0, 749.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1512,41 +1507,7 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
-						"visible" : 1,
 						"boxes" : [ 							{
-								"box" : 								{
-									"comment" : "",
-									"id" : "obj-17",
-									"maxclass" : "outlet",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 522.0, 514.0, 25.0, 25.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"comment" : "",
-									"id" : "obj-16",
-									"maxclass" : "outlet",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 485.0, 514.0, 25.0, 25.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"comment" : "",
-									"id" : "obj-9",
-									"maxclass" : "outlet",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 448.0, 514.0, 25.0, 25.0 ]
-								}
-
-							}
-, 							{
 								"box" : 								{
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
@@ -1556,7 +1517,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 134.0, 587.0, 213.0, 18.0 ],
-									"text" : "6 1 1 50 50 80 110 61 240 240 50 50"
+									"text" : "7 8 1 48 48 80 110 21 300 300 48 48"
 								}
 
 							}
@@ -1570,7 +1531,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 134.0, 557.0, 213.0, 18.0 ],
-									"text" : "3 1 1 60 60 110 80 31 240 240 60 60"
+									"text" : "2 8 1 65 65 110 80 71 300 300 65 65"
 								}
 
 							}
@@ -1623,7 +1584,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 408.0, 282.0, 90.0, 18.0 ],
-									"text" : "cellvalue 9"
+									"text" : "cellvalue 8"
 								}
 
 							}
@@ -1731,7 +1692,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 134.0, 528.0, 213.0, 18.0 ],
-									"text" : "0 0 0 0 0 0 0 0 0 0 0 0"
+									"text" : "2 8 1 65 65 110 80 71 300 300 65 65"
 								}
 
 							}
@@ -1822,8 +1783,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 5,
 									"outlettype" : [ "", "", "", "", "" ],
-									"patching_rect" : [ 282.0, 424.0, 248.0, 20.0 ],
-									"text" : "mxj psmysql root iwuana 1000 localhost solo"
+									"patching_rect" : [ 282.0, 424.0, 314.0, 20.0 ],
+									"text" : "mxj psmysql psmatrix password 1000 192.168.0.113 solo"
 								}
 
 							}
@@ -2014,24 +1975,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-16", 0 ],
-									"disabled" : 0,
-									"hidden" : 0,
-									"source" : [ "obj-68", 3 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-17", 0 ],
-									"disabled" : 0,
-									"hidden" : 0,
-									"source" : [ "obj-68", 4 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-3", 0 ],
 									"disabled" : 0,
 									"hidden" : 0,
@@ -2054,15 +1997,6 @@
 									"disabled" : 0,
 									"hidden" : 0,
 									"source" : [ "obj-68", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-9", 0 ],
-									"disabled" : 0,
-									"hidden" : 0,
-									"source" : [ "obj-68", 2 ]
 								}
 
 							}
@@ -2181,7 +2115,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 601.0, 710.396667, 417.0, 34.0 ],
+					"patching_rect" : [ 601.0, 710.396667, 417.0, 33.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 19.0, 707.0, 1357.75, 20.0 ],
 					"text" : "Sounds are triggered when puzzle tiles revealed. They can also be triggered by clicking on a revealed tile"
@@ -2198,10 +2132,10 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1035.25, 335.0, 151.0, 103.0 ],
+					"patching_rect" : [ 1035.25, 335.0, 151.0, 100.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 922.25, 264.0, 454.5, 34.0 ],
+					"presentation_rect" : [ 922.25, 264.0, 454.5, 33.0 ],
 					"text" : "TRY TO ACHEIVE CONDUCTOR INSTRUCTIONS BY CHANGING THE MIX, INSTRUMENT/VST SETTING OR HOWEVER ELSE YOU WANT"
 				}
 
@@ -2269,9 +2203,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 6,
-							"minor" : 1,
-							"revision" : 6,
-							"architecture" : "x86"
+							"minor" : 0,
+							"revision" : 8
 						}
 ,
 						"rect" : [ 109.0, 43.0, 1049.0, 672.0 ],
@@ -2869,64 +2802,10 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-80", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-80", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-12", 1 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-80", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-13", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-80", 3 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-14", 1 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-80", 3 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-7", 1 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-80", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-80", 2 ]
 				}
 
 			}
@@ -2958,11 +2837,7 @@
 
 			}
  ],
-		"dependency_cache" : [ 			{
-				"name" : "attrui.mxe",
-				"type" : "iLaF"
-			}
- ]
+		"dependency_cache" : [  ]
 	}
 
 }
