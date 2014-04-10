@@ -1,19 +1,28 @@
 long startTime;
-float metroTime = 2*300;
+float metroTime = 2*250;
 int currentMeasure;
+int countPicture = 0;
+int MAX_COUNTER = 35;
+
 public void updateMetro(){
-  if(!flagMetro){
-    startTime = millis();
-  }else{
-  
-  float delta= (millis()-startTime); 
-  int measure = floor(delta/metroTime)%10;
+    
+    float delta= (millis()-startTime); 
+    int measure = floor(delta/metroTime)%10;
+     if(currentMeasure != measure){
+         currentMeasure = measure;
+         if((currentMeasure%5)==0 ){
 
-   if(currentMeasure != measure){
-     currentMeasure = measure;
-     updateMeasureDB(measure);
-   }
+          }
+      }
 
-    System.out.println(measure);
-  }
+}
+
+public void updateCounter(){
+    
+    countPicture++;
+    if(countPicture >= MAX_COUNTER){
+         countPicture = 0;
+         System.out.println("Automatic Solving...");
+         grid.autoRandomFill();
+    }
 }

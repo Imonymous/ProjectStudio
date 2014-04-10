@@ -5,15 +5,40 @@ public class Grid{
   int QUAD_SIZE = 10;//& ideal number
   pt[] centers;
   int[] mappings;
+  int[] fixed ={0,  0,  1,  0,  1,  0,  1,  0,  0,  1,
+                0,  1,  0,  0,  0,  0,  0,  0,  1,  0,
+                1,  0,  0,  0,  0,  0,  0,  1,  0,  0,
+                0,  0,  0,  0,  0,  1,  0,  0,  0,  0,
+                0,  0,  1,  1,  0,  0,  1,  1,  0,  1,
+                0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+                0,  1,  0,  0,  0,  0,  0,  0,  1,  0,
+                1,  0,  0,  0,  1,  0,  0,  0,  0,  0,
+                0,  0,  0,  0,  0,  0,  0,  1,  0,  0,
+                0,  0,  0,  0,  0,  0,  0,  0,  0,  0};
   boolean[] flagdraws;
+  int[] midias;
+  int[] midibs;
   float size;
   int pv = -1;
   pt movPoint;
   int movIndex;
   float delta;
+  
+  float startX,startY, sizeXY;
+      float randomness =0.00;
+  
   public Grid(float x, float y, float size){
+    startX =x;
+    startY = y;
+    sizeXY = size;
+
+    
     centers = new pt[QUAD_SIZE*QUAD_SIZE];
     mappings = new int[QUAD_SIZE*QUAD_SIZE];
+    midias = new int[QUAD_SIZE*QUAD_SIZE];
+    midibs = new int[QUAD_SIZE*QUAD_SIZE];
+    
+    
     movPoint = null;
      flagdraws = new boolean[QUAD_SIZE*QUAD_SIZE];
     this.size = size;
@@ -64,7 +89,16 @@ public class Grid{
         if(row ==QUAD_SIZE-1 ){
              edge( P(centers[boxIndex(row, col)].x-delta2,centers[boxIndex(row, col)].y+ delta2) ,
               P(centers[boxIndex(row, col)].x+delta2,centers[boxIndex(row, col)].y+ delta2) );   
-        }      
+        } 
+        if(flagRelease!=true){
+          if((fixed[boxIndex(row, col)]==1)&&(PLAY_MODE!=MODE_VIDEO)){
+            //draw line          
+            line( centers[boxIndex(row, col)].x-delta2, centers[boxIndex(row, col)].y- delta2,
+                 centers[boxIndex(row, col)].x+delta2, centers[boxIndex(row, col)].y+ delta2);
+                        line( centers[boxIndex(row, col)].x-delta2, centers[boxIndex(row, col)].y+ delta2,
+                 centers[boxIndex(row, col)].x+delta2, centers[boxIndex(row, col)].y- delta2);     
+          } 
+        }
       }
     }  
   }
@@ -185,23 +219,32 @@ public class Grid{
   
   public void drawNumbers(){
      //pen(magenta, 1.0);
-     fill(yellow);
-     textSize(12);
+     fill(cyan);
+     textSize(15);
 
      for(int row= 0;row<QUAD_SIZE;row++) {
 
        for(int col= 0;col<QUAD_SIZE;col++) { 
 
-         if( flagdraws[boxIndex(row, col)]  && (pv!=boxIndex(row, col)) ){  
-           text(mappings[boxIndex(row, col)], centers[boxIndex(row, col)].x, centers[boxIndex(row, col)].y);
-           //v(ptTopLeft(centers[boxIndex(row, col)]),mapTopLeftX(row,col),mapTopLeftY(row,col)); 
-         }
+           if( flagdraws[boxIndex(row, col)]  && (pv!=boxIndex(row, col)) ){  
+             text(mappings[boxIndex(row, col)], centers[boxIndex(row, col)].x, centers[boxIndex(row, col)].y);
+             //v(ptTopLeft(centers[boxIndex(row, col)]),mapTopLeftX(row,col),mapTopLeftY(row,col)); 
+           }
+
          
        };
 
      };
            
        
+  }
+  
+  public void drawGauge(){
+    pen(red, 10.0);
+    float lengthGauge = sizeXY*currentState();
+    float endPoint = startX+sizeXY-delta/2;
+    
+    line( endPoint-lengthGauge, startY-50, endPoint, startY-50);
   }
 
   
@@ -276,10 +319,35 @@ public class Grid{
       if(state == 0){
         flag = false;
       }
+      /*
+      if(!flagRelease){
+        if(fixed[boxIndex(row, col)]==1){
+          flag = false;
+        }  
+      }*/
       flagdraws[boxIndex(row, col)] = flag;
       mappings[boxIndex(row, col)] = sequence;
 
   }
+  
+  public void updateCellBase(int row, int col, int midia , int midib){
+
+      midias[boxIndex(row, col)] = midia;
+      midibs[boxIndex(row, col)] = midib;
+
+  }
+  
+  public float currentState(){
+     int count =0;
+     for(int i= 0; i<QUAD_SIZE*QUAD_SIZE;i++){
+         if( mappings[i] == i){
+           count++;
+         }
+     } 
+    randomness = count/(QUAD_SIZE*QUAD_SIZE);
+     return count/(QUAD_SIZE*QUAD_SIZE);
+  }
+  
   public void resetFlagDraws(){
      for(int i= 0; i<QUAD_SIZE*QUAD_SIZE;i++){
        flagdraws[i]= true;
@@ -304,6 +372,27 @@ public class Grid{
        movPoint = null;
        pv = -1;
     }
+    
+    if(pv>=0){
+      int seq =mappings[pv];
+      int row = getRow(seq);
+
+      if(!flagRelease){
+        if( fixed[pv]==1 ){
+          movPoint = null;
+          pv = -1;
+        }  
+      }
+
+
+      if(row==9){
+        movPoint = null;
+        pv=-1;
+      }
+    }
+    
+    
+    
   }
   
   public void switchClosest(pt M) {
@@ -338,11 +427,8 @@ public class Grid{
        updateGridFromDB();                         
   }
   
-  public void release(){
-    if((pv>=0) && (movPoint!=null)){
-      int pos = findClosest(movPoint);
-      if( (pos>=0) && (pv!=pos) && !flagdraws[pos]){
-        System.out.println("*************CHANGE**************");
+  public void updateToDB(int pv, int pos){
+        System.out.println("************* DB UPDATE **************");
         String querydatapv = "SELECT * FROM matrix where row="+getRow(pv)+ " and col="+getCol(pv);
         String querydatapos = "SELECT * FROM matrix where row="+getRow(pos)+ " and col="+getCol(pos);
         msql.query(querydatapv );
@@ -366,31 +452,70 @@ public class Grid{
         System.out.println("SEQUENCE SOURCE "+sequencepv+ " TARGET "+sequencepos);
         
         String updatepv = "UPDATE matrix set state ="+statepos+
-                                           ",midinotea="+midinoteapos+
-                                           ",midinoteb="+midinotebpos+
-                                           ",midilevela="+midilevelapos+
-                                           ",midilevelb="+midilevelbpos+
+                                           ",midinotea="+midias[sequencepos]+
+                                           ",midinoteb="+midibs[sequencepos]+
                                            ",sequence="+sequencepos+
                                            " where row="+getRow(pv)+ " and col="+getCol(pv);
                                            
         
       String updatepos = "UPDATE matrix set state ="+statepv+
-                                 ",midinotea="+midinoteapv+
-                                 ",midinoteb="+midinotebpv+
-                                 ",midilevela="+midilevelapv+
-                                 ",midilevelb="+midilevelbpv+
+                                 ",midinotea="+midias[sequencepv]+
+                                 ",midinoteb="+midibs[sequencepv]+
                                  ",sequence="+sequencepv+
                                  " where row="+getRow(pos)+ " and col="+getCol(pos);                                   
                                            
         msql.execute( updatepv);   
         msql.execute( updatepos);  
-        updateGridFromDB();
+        updateGridFromDB();  
+  }
+  
+    public void release(){  
+    if((pv>=0) && (movPoint!=null)){
+      int pos = findClosest(movPoint);
+      if( (pos>=0) && (pv!=pos) && !flagdraws[pos]){
+        
+        //row 9 is fixed
+        if((getRow(pos)==9)||getRow(pv)==9 ){
+          System.out.println("MOVING TO OR FROM FIXED POSITION");
+          pv = -1;
+          movPoint = null;
+          return;
+        }
+        
+        if(!flagRelease){
+          if(fixed[pos]==1){
+             System.out.println("MOVING TO FIXED POSITION");
+             pv = -1;
+             movPoint = null;
+             return;           
+          }
+        }
+        updateToDB(pv,pos);
       }
       
     }
     pv = -1;
     movPoint = null;
   }
-  
+
+    
+  public void autoRandomFill(){
+    int index = (int)Math.round(random(100));
+    System.out.println("Random Start"+ index);
+    for(int i=0;i<100;i++){
+      int base = (index+i)%100;
+      if( mappings[base]!=base ){
+        
+        if(flagdraws[base]&&flagdraws[mappings[base]]){
+          System.out.println("Wrong enabled position for index"+ base);
+          updateToDB( base, mappings[base]); 
+          break;
+        }
+       
+      }
+    
+    }
+  }
+
   
 }
