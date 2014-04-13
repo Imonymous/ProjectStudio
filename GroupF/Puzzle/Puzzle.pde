@@ -10,7 +10,7 @@ int MODE_PERFORMER = 0;
 int MODE_MASTER = 1;
 int MODE_VIDEO = 2;
 
-int PLAY_MODE = MODE_PERFORMER;
+int PLAY_MODE = MODE_VIDEO;
 boolean flagMaster = false;
 
 //**************************** initialization ****************************
